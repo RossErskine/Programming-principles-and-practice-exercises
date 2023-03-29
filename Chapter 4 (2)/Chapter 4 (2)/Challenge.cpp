@@ -128,6 +128,48 @@ void Challenge::Drill_6(){
 		}
 	}
 }
+struct Metric {
+	double value;
+	string unit;
+};
+Metric convertMetric(Metric source,Metric target) {
+	if (target.unit == "") {
+		return source;
+	}
+	if (target.unit == "m") {
+		Metric convertedMetric;
+		convertedMetric.unit = "m";
+		convertedMetric.value = source.value * 100;
+		return convertedMetric;
+	}
+}
+void Challenge::Drill_7() {
+	Metric metric, smallest, largest;
+	smallest.value = 100;
+	bool fin = true;
+	while (fin == true) {
+		cout << "Enter a value with a unit cm, m, in, or ft: " << endl << endl;
+		cin >> metric.value >> metric.unit;
+		if (!cin) {
+			fin = false;
+			cout << "Thanks for playing!";
+			return;
+		}
+		else {
+			cout << "the value entered:" << metric.value << metric.unit << endl;
+			if (convertMetric(metric, smallest).value  < smallest.value) {
+				smallest = metric;
+				cout << "the smallest so far" << endl;
+			}
+			if (convertMetric(metric, largest).value > largest.value) {
+				largest = metric;
+				cout << "the largest so far" << endl;
+			}
+		}
+		
+
+	}
+}
 /*
 void Challenge::Exercise_1()
 {
@@ -189,10 +231,43 @@ void Challenge::bleep(){
 // TODO create switch for drill choice
 void Challenge::RunChallenges()
 {
+	
+	cout << "Please choose a Drill 1 - 7" << endl;
+	for (int drill; cin >> drill;) {
+		switch (drill)
+		{
+		case 1:
+			Drill_1();
+			break;
+		case 2:
+			Drill_2n3();
+			break;
+		case 3:
+			Drill_2n3();
+			break;
+		case 4:
+			Drill_4n5();
+			break;
+		case 5:
+			Drill_4n5();
+			break;
+		case 6:
+			Drill_6();
+			break;
+		case 7:
+			Drill_7();
+			break;
+
+		default:
+			cout << "Sorry number not recognised!" << endl;
+			break;
+		}
+	}
+	
 	//Drill_1();
 	//Drill_2n3();
 	//Drill_4n5();
-	Drill_6();
+	//Drill_6();
 	//Exercise_1();
 	//TryThis();
 	//bleep();
