@@ -133,14 +133,42 @@ struct Metric {
 	string unit;
 };
 Metric convertMetric(Metric source,Metric target) {
+	Metric convertedMetric;
 	if (target.unit == "") {
 		return source;
 	}
-	if (target.unit == "m") {
-		Metric convertedMetric;
+	else if (target.unit == "m" && source.unit == "cm") {
 		convertedMetric.unit = "m";
+		convertedMetric.value = source.value / 100;
+		return convertedMetric;
+	}
+	else if (target.unit == "cm" && source.unit == "m") {
+		convertedMetric.unit = "cm";
 		convertedMetric.value = source.value * 100;
 		return convertedMetric;
+	}
+	else if (target.unit == "in" && source.unit == "cm") {
+		convertedMetric.unit = "in";
+		convertedMetric.value = source.value * 2.54;
+		return convertedMetric;
+	}
+	else if (target.unit == "cm" && source.unit == "in") {
+		convertedMetric.unit = "cm";
+		convertedMetric.value = source.value / 2.54;
+		return convertedMetric;
+	}
+	else if (target.unit == "ft" && source.unit == "in") {
+		convertedMetric.unit = "ft";
+		convertedMetric.value = source.value / 12;
+		return convertedMetric;
+	}
+	else if (target.unit == "in" && source.unit == "ft") {
+		convertedMetric.unit = "in";
+		convertedMetric.value = source.value * 12;
+		return convertedMetric;
+	}
+	else {
+		cout << "sorry unrecognised conversion" << endl;
 	}
 }
 void Challenge::Drill_7() {
@@ -159,11 +187,11 @@ void Challenge::Drill_7() {
 			cout << "the value entered:" << metric.value << metric.unit << endl;
 			if (convertMetric(metric, smallest).value  < smallest.value) {
 				smallest = metric;
-				cout << "the smallest so far" << endl;
+				cout << "the smallest so far:" <<smallest.value<<smallest.unit<< endl;
 			}
 			if (convertMetric(metric, largest).value > largest.value) {
 				largest = metric;
-				cout << "the largest so far" << endl;
+				cout << "the largest so far:" <<largest.value<<largest.unit<< endl;
 			}
 		}
 		
