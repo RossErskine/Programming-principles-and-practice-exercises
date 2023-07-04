@@ -2,5 +2,5 @@
 Bjarne Stroustrups book 
 
 challenges from book 
-upto challenge 14 so far need more to time to complete 
-but will defenitly find the time to finish as very enjoyable.
+upto challenge 14 so far need more time to complete 
+but will definitely find the time to finish very enjoyable.
