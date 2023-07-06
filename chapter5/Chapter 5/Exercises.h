@@ -9,21 +9,21 @@ using namespace std;
 
 //===declarations===//
 Quadratic_formula qf;
-myVector<double> vec1;
-myVector<int> vec2;
+myVector<double> doubleVector;
+myVector<int> integerVector;
 
 //display vector
 template <typename T>
 void displayVec(vector<T> v)
 {
-	for (int i = 0; i != v.size(); i++)
-	{
+	for (int i = 0; i != v.size(); i++){
 		cout << v[i] << '\t';
 	}
 	cout << endl;
 }
 
-/*list of changes:
+/* Exercies2: find errrors
+list of changes:
 1)change d to c (line 15)
 2)delete "" (line 16)
 3)change Cout to cout (line 17)
@@ -34,8 +34,10 @@ void displayVec(vector<T> v)
 */
 double ctok(double c)
 {
-	if (c <= -273.15)
-	{
+	if (c <= -273.15){
+		/* Exercise 4 
+		* Check for absolute zero
+		*/
 		throw "Below absolute zero!";
 	}
 	double k = c + 273.15;
@@ -43,35 +45,45 @@ double ctok(double c)
 }
 double ktoc(double k)
 { 
-	if (k <= 0)
-	{
+	if (k <= 0){
+		/* Exercise 3
+		* Check for absolute zero
+		*/
 		throw "Below absolute zero!";
 	}
 	double c = k - 273.15;
 	return c;
 }
-void exercise_2()
+void exercise_2to6()
 {
 	try {
 		char type;
 		double c = 0;
 		double k = 0;
+		
+		cout << "Enter temperature type? c for Celsius or k for Kelvin"<< endl;
 		cin >> type;
+		
+		/* Exercise 5
+		* Convert Kelvin to Celsius
+		 */
 		switch (type)
 		{
 		case 'c':
+			cout << "Enter temp in Celsius:" <<endl;
 			cin >> c;
 			k = ctok(c);
 			cout << k << '\n';
 			break;
-		case'k':
-
+		case 'k':
+			cout << "Enter temp in Kelvin: "<< endl;
 			cin >> k;
 			c = ktoc(k);
 			cout << c << '\n';
 			break;
 		default:
 			cerr << "wrong type" << endl;
+			exercise_2to6();
 			break;
 		}
 		
@@ -81,15 +93,19 @@ void exercise_2()
 		cerr << msg << endl;
 	}
 }
-
+/*================================================================================
+* Write a program that can calculate x for a quadratic equation. Create a function
+* that prints out the roots of a quadratic equation, given a, b, c. When the program 
+* detects an equation with no real roots, have it print out a message.
+*/
 void exercise_7()
 {
 	try {
-		double t_a, t_b, t_c;
-		cout << "Enter Quadratic Formula: A, B & C " << endl;
-		cin >> t_a >> t_b >> t_c;
-		qf.quad_Ans_plus(t_a, t_b, t_c);
-		qf.quad_Ans_minus(t_a, t_b, t_c);
+		double a, b, c;
+		cout << "Enter Quadratic Formula: a, b & c " << endl;
+		cin >> a >> b >> c;
+		qf.quad_Ans_plus(a, b, c);
+		qf.quad_Ans_minus(a, b, c);
 		if (qf.GetPlusX() == qf.GetMinusX())
 		{
 			cout << "only one root!" << endl;
@@ -106,26 +122,29 @@ void exercise_7()
 		cerr << msg << endl;
 	}
 }
-
-void exercise_8()
+/* =============================================================================
+* 8) Write a program that reads and stores a series of integers and then computes the 
+* sum of the first N integers. First ask for N then read the values into a vector,
+* then calculate the sum of the first N values. 
+* 9) Modify to write an error if the results cannot be represented as an int
+* 10) Use doubles instead of ints, also make a vector of differences.
+*/
+void exercise_8to10()
 {
-	try 
-	{
+	try {
 		double sum = 0;
 		double dif = 0;
 		cout << "Please enter the number of values you want to sum:" << endl;
 		cin >> sum;
 		cout << "Please enter some integers (press'|' to stop):" << endl;
-		for (double temp; cin >> temp;)
-		{
-			vec1.add_vec(temp);
+		for (double temp; cin >> temp;){
+			integerVector.add_vector(temp);
 		}
-		if (vec1.vec_size() < sum)
-		{
+		if (integerVector.vector_size() < sum){
 			throw "vector not big enough!";
 		}
-		vec1.DisplaySumOfSumVec(sum);
-		vec1.DisplayVecDiff();
+		integerVector.DisplaySumOfSumVec(sum);
+		integerVector.DisplayVecDiff();
 	}
 	catch (const char* msg)
 	{
@@ -149,6 +168,10 @@ void yr2()
 
 	}
 }
+/* ===========================================================================
+* Write a program that writes out the first so many values of the Fibanacci series.
+* Find the largest nuber in the series that fits in an int.
+*/
 
 void exercise_11()
 {
@@ -177,7 +200,15 @@ void exercise_11()
 		cout << e.what() <<  endl;
 	}
 }
-
+/*==============================================================================
+* 12) Implement a guessing game called "Bulls and Cows". The program has a vector of four 
+* different integers in the range 0 - 9, it's the user's task to discover those numbers 
+* by repeating guesses. Say the number to be guessed is 1234 and the user guesses 1359;
+* the response should be "1 bull and 1 cow" because the user got one digit right in the 
+* right position and 1 right but in the wrong position. 
+* 13) Make a version where the user can play repeatedly, and each new game has a set of 
+* new digits
+*/
 int com = 0, ply = 0;
 int win = 0;
 void checkguess(vector<int> a, vector<int> b)
@@ -225,7 +256,7 @@ void checkguess(vector<int> a, vector<int> b)
 	}
 }
 
-void exercise_12()
+void exercise_12t013()
 {
 	try
 	{
@@ -333,7 +364,14 @@ int DisplaySumOfVec(vector<int> vec)
 	int sum = accumulate(vec.begin(), vec.end(), 0);
 	return sum;
 }
-
+/*============================================================================
+* Read day-of-the-week value pairs from standard input. For example:
+* Tuesday 23 Friday 56 Tuesday -3 Thursday 99
+* Collect all values for each of the week in a vector. Write out the values of the seven 
+* day-of-the-week vectors. Print out the sum of the values in each vector. Ignore 
+* illegal days of the week, such as Funday, but except common synonyms such as Mon monday. 
+* write out rejected values.
+*/
 void exercise_14()
 {
 	try {

@@ -10,64 +10,56 @@ template <typename T>
 class myVector
 {
 private:
-	vector<T> m_vec;
-	vector<double> m_diff;
+	vector<T> myvector;
+	vector<double> difference;
+	int vectorSize = vector_size();
 public:
 	
-	const T& vec_size() const
-	{
-		return m_vec.size();
+	const T& vector_size(){
+		vectorSize = myvector.size();
 	}
 
-
-	const T& GetVec(int i) const
-	{
-		return m_vec[i];
+	const T& getVecSize() const{
+		return vectorSize;
 	}
 
-	void add_vec(T vec)
-	{
-		m_vec.push_back(vec);
+	const T& GetVector(int i) const{
+		return myvector[i];
 	}
 
-	
-	void display_vec()
-	{
-		sort(m_vec.begin(), m_vec.end());
-		for (int i = 0; i < m_vec.size(); i++)
-		{
-			cout << m_vec[i] << '\t';
+	void add_vector(T vec){
+		myvector.push_back(vec);
+	}
+
+	void display_vec(){
+		sort(myvector.begin(), myvector.end());
+		for (int i = 0; i < myvector.size(); i++){
+			cout << myvector[i] << '\t';
 		}
 		cout << endl;
 	}
 	
-	void DisplaySumOfVec()
-	{
+	void DisplaySumOfVec(){
 		cout << "The sum of all elements are: ";
-		cout << accumulate(m_vec.begin(), m_vec.end(), 0) << endl;
+		cout << accumulate(myvector.begin(), myvector.end(), 0) << endl;
 	}
-	void DisplaySumOfSumVec(double n)
-	{
+
+	void DisplaySumOfSumVec(double n){
 		double sum = 0;
 		for (int i = 0; i < n; ++i)
 		{
-			sum += m_vec[i];
+			sum += myvector[i];
 		}
 		cout << "The sum of the first " << n << " elements are: " << sum << endl;
 	}
 
 	void DisplayVecDiff()
 	{
-		
-		for (int i = 1; i != m_vec.size(); ++i)
-		{
-			
-			m_diff.push_back(m_vec[i] - m_vec[i -1] );
-
+		for (int i = 1; i != myvector.size(); ++i){
+			difference.push_back(myvector[i] - myvector[i -1] );
 		}
-		for (int y = 0; y != m_diff.size(); y++)
-		{
-			cout << m_diff[y] << '\t';
+		for (int y = 0; y != myvector.size(); y++){
+			cout << difference[y] << '\t';
 		}
 		cout << endl;
 
@@ -76,23 +68,20 @@ public:
 	void DisplayMaxElement()
 	{
 		cout << "Max Elememnt: ";
-		cout << *max_element(m_vec.begin(), m_vec.end()) << endl;
+		cout << *max_element(myvector.begin(), myvector.end()) << endl;
 	}
 	
 	void DisplayMinElement()
 	{
 		cout << "Min Elememnt: ";
-		cout << *min_element(m_vec.begin(), m_vec.end()) << endl;
+		cout << *min_element(myvector.begin(), myvector.end()) << endl;
 	}
 	
 	void DisplayMean()
 	{
-		double sum = accumulate(m_vec.begin(), m_vec.end(), 0);
-		double mean = sum / m_vec.size();
+		double sum = accumulate(myvector.begin(), myvector.end(), 0);
+		double mean = sum / myvector.vec_size();
 		cout << "Mean of Elements: " << mean << endl;
 	}
-
-
-
 };
 

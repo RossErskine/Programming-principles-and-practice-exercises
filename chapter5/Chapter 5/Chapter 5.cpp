@@ -8,15 +8,13 @@ using namespace std;
 int main()
 {
     //drill();
-    //exceptions();
-    //exception_2();
-    //exercise_2();
-   // exercise_7();
-    //exercise_8();
+    //exercise_2to6();
+    //exercise_7();
+    //exercise_8to10();
    // yr2();
     //exercise_11();
-   // exercise_12();
-    exercise_14();
+   // exercise_12to13();
+    //exercise_14();
 
 }
 
