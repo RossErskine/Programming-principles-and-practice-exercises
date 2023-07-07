@@ -7,9 +7,25 @@ int main()
 {
     try
     {
-		runCalc();
-		//runExercises();
-		//messingPlay();
+		int run =0;
+		cout << "Enter 1 to run calculator, 2 to run Exercises, and 3 to messing programs" << endl;
+		cin >> run;
+
+		switch (run){
+			case 1:
+				runCalc();
+				break;
+			case 2:
+				runExercises();
+				break;
+			case 3:
+				messingPlay();
+				break;
+			default:
+				throw "Number not recognized";
+				
+		}
+		
 		
 	}
 	catch (runtime_error e)

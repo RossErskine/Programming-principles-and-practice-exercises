@@ -45,7 +45,7 @@ Token Token_stream::get()
 	{
 	case'=':
 	case'x':
-	case'(':case')': case'{':case'}': case '£':
+	case'(':case')': case'{':case'}':case '!':
 	case'+': case'-': case'*': case'/':
 		return Token{ ch };
 	case'.':
@@ -104,7 +104,7 @@ double factorial()
 	
 	while (true)
 	{
-		if (t.kind == '£')
+		if (t.kind == '!')
 		{
 			for (int i = left - 1; i > 0; --i)
 			{
@@ -189,10 +189,11 @@ double expression()
 void runCalc()
 {
 	double val = 0;
-	cout << "Welcome to our simple calculator " << endl;
+	// Drills: 2-5
+	cout << "Welcome to our simple calculator " << endl; 
 	cout << " Please enter expressions using floating-point numbers" << endl;
 	cout << " You can use add, subtract, multiply and divide " << endl;
-	cout << "Print by using '=' and use 'x' to quit " << endl;
+	cout << "Print by using '=' and use 'x' to quit " << endl; 
 	while (cin)
 	{
 		Token t = ts.get();

@@ -66,6 +66,6 @@ void exercise_6()
 }
 void runExercises()
 {
-	//exercise_3();
-	exercise_6();
+	exercise_3();
+	//exercise_6();
 }
