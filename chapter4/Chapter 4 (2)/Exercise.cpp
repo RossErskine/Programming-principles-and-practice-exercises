@@ -1,19 +1,80 @@
 #include "Exercise.h"
-
-
-using namespace std;
-
-
-
-Exercise::Exercise()
+/* ======== Exercise 1 ========================================
+* Try this page: 105 & 109
+* Write a program that converts Yen, Euros, and pounds into Dollers.
+* Rewrite to incorporate a switch statement
+*/
+void Exercise::exercise1()
 {
+	using namespace std;
+	double value;
+	char unit;
+	cout << "Enter the value followed by the currency Y = yen, E = Euro, D = dollers: \n" << endl;
+	cin >> value >> unit;
+	currency.SetVal(value);
+	currency.SetUnit(unit);
+
+	switch (currency.GetUnit())
+	{
+	case 'Y':
+		cout << "the conversion is: " << currency.GetVal() * currency.GetYen() << " in pounds" << endl;
+		break;
+	case 'E':
+		cout << "the conversion is: " << currency.GetVal() * currency.GetEuro() << " in pounds " << endl;
+		break;
+	case 'D':
+		cout << "the conversion is: " << currency.GetVal() * currency.GetUSDoller() << " in pounds " << endl;
+		break;
+	default:
+		cout << "Sorry thats not a currency we can convert: " << endl;
+		break;
+	}
+}
+/*
+* Character converter
+* Page 111
+*/
+void Exercise::tryThisCharacterConverter()
+{
+	char character = 'A';
+	while (character != 'z' + 1)
+	{
+		int integer = character;
+		cout << character << '\t' << integer << '\n';
+		++character;
+	}
+}
+
+void Exercise::tryThisBleep()
+{
+	vector<string> sentence;
+	string badWord = "shit";
+	string replacementWord = "****";
+	cout << "input a sentence: " << endl;
+	for (string word; cin >> word;) {
+		if (word == badWord){
+			sentence.push_back(replacementWord);
+		}
+		else{
+			sentence.push_back(word);
+		}	
+	}
+	for (string word : sentence) {
+		cout << word << " ";
+	}
+}
+
+/*=============Exercise 2 =====================================
+* If we define a median of a sequence as "number so that exactly as many elements
+* come before it in the sequence as come after it" fix program from 4.6.3 so it always 
+* prints out the median
+*/
+void Exercise::exercise2()
+{
+	//TODO..
+}
+
 	
-}
-
-
-Exercise::~Exercise()
-{
-}
 
 void Exercise::exercise_6()
 {
