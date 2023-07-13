@@ -1,15 +1,18 @@
 #include "Exercise.h"
 
-#include <string>
 
 using namespace std;
 
-void Exercise::runExercises()
+
+
+Exercise::Exercise()
 {
-	//exercise_6();
-	//exercise_11();
-	exercise_18();
-	//exercise_19();
+	
+}
+
+
+Exercise::~Exercise()
+{
 }
 
 void Exercise::exercise_6()
@@ -18,35 +21,43 @@ void Exercise::exercise_6()
 
 	cout << "write a sum:  " << endl;
 	cin >> t_val1 >> t_val2 >> t_val3;
-	wc.findFirstWord(t_val1);
-	wc.findExp(t_val2);
-	wc.findSeocndWord(t_val3);
-	wc.GetSum();
-	
+	word_calc.findFirstWord(t_val1);
+	word_calc.findExp(t_val2);
+	word_calc.findSeocndWord(t_val3);
+	word_calc.GetSum();
+
 }
 
-
+void Exercise::exercise_10()
+{
+	string t_playerInput;
+	cout << "enter: rock, paper or scissors " << endl;
+	cin >> t_playerInput;
+	/*rps.SetPlayerInput(t_playerInput);
+	rps.computerGo();
+	rps.winner(rps.GetPlayerGo(), rps.GetComputerGo());*/
+}
+//vector<int> prime_num = { 2 };
 void Exercise::exercise_11()
 {
-	
-	IVector.add_vec(2);
+	IVector.add_Ivec(2);
 	for (int i = 3; i < 100; ++i)
 	{
-
-		find_prime(i);
-		if (find_prime(i))
-		{
-			IVector.add_vec(i);
-		}
-
+		
+			//find_prime(i);
+			if (find_prime(i))
+			{
+				IVector.add_Ivec(i);
+			}
+		
 	}
-	IVector.display_vec();
+	IVector.display_Ivec();
 }
 bool Exercise::find_prime(int n)
 {
-	for (int i = 0; i < IVector.vec_size(); ++i)
+	for (int i = 0; i < IVector.Ivec_size(); ++i)
 	{
-		if (n % IVector.GetVec(i) == 0) {
+		if (n % IVector.GetIvec(i) == 0) {
 			return false;
 		}
 
@@ -73,85 +84,20 @@ void Exercise::exercise_19()
 	{
 		cout << "please write name and score: " << endl;
 		cin >> t_name >> t_score;
-		if (t_name == "Q")
+		ns.addName(t_name, t_score);
+		if (t_name == "NoName")
 		{
 			play = false;
 		}
-		else {
-			for (int i = 0; i < scores.vec_size(); i++)
-			{
-				if (t_name == names.GetVec(i))
-				{
-					cout << " sorry that name is taken!" << endl;
-					play = false;
-				}
-			}
-			names.add_vec(t_name);
-			scores.add_vec(t_score);
-
-		}
-
 	}
-	for (int i = 0; i < scores.vec_size(); i++)
-	{
-		cout << names.GetVec(i) << '\t';
-		cout << scores.GetVec(i) << '\t';
-	}
-
-	//====exercise 20 - 21 ===========//
-	int menu, score, count = 0;
-	string name;
-	bool play2 = true;
-	while (play2 == true)
-	{
-	
-		cout << " \nmenu: 1 = names, 2 = scores, 0 = quit " << endl;
-		cin >> menu;
-		switch (menu)
-		{
-		case 0:
-			play2 = false;
-		case 1:
-			cout << "what name please:" << endl;
-			cin >> name;
-
-			for (int i = 0; i < scores.vec_size(); i++)
-			{
-				if (name == names.GetVec(i))
-				{
-					count++;
-					cout << names.GetVec(i) << '\t';
-					cout << scores.GetVec(i) << '\t';
-				}
-
-			}
-			if (count == 0) {
-				cout << " no names found" << endl;
-			}
-
-			break;
-		case 2:
-			cout << "what score please:" << endl;
-			cin >> score;
-
-			for (int i = 0; i < scores.vec_size(); i++)
-			{
-				if (score == scores.GetVec(i))
-				{
-					count++;
-					cout << names.GetVec(i) << '\t';
-					cout << scores.GetVec(i) << '\t';
-				}
-
-			}
-			if (count == 0) {
-				cout << " no scores found" << endl;
-			}
-			break;
-		default:
-			cout << "sorry try again " << endl;
-			break;
-
-		}
-	}
+	ns.displayNames_n_scores();
+}
+void Exercise::runExercise()
+{
+	//exercise_6();
+	//rg.grainCount();
+	//exercise_10();
+	//exercise_11();
+	//exercise_18();
+	exercise_19();
 }

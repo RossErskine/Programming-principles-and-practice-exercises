@@ -1,4 +1,4 @@
-#pragma once
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -17,7 +17,7 @@ private:
 	int m_second_num;
 	int m_exp;
 public:
-	void findFirstWord(string word)
+	void findFirstWord(string word) 
 	{
 		for (int i = 0; i != m_Ten.size(); ++i)
 		{
@@ -50,8 +50,8 @@ public:
 			}
 		}
 	}
-
-
+	
+	
 	void GetSum()
 	{
 		switch (m_exp)
@@ -77,9 +77,9 @@ public:
 			cout << " something went wrong sorry" << endl;
 		}
 
-
-
+		
+	
 	}
 
-};
 
+};
