@@ -6,56 +6,28 @@ using namespace std;
 class Currency
 {
 private:
-	double m_val;
-	char m_unit;
-	double m_Yen = 0.007;
-	double m_Euro = 0.84;
-	double m_USdoller = 0.76;
+	double value;
+	char unit;
+	double Yen = 0.007; //default
+	double Euro = 0.84; 
+	double USdoller = 0.76;
 public:
+	// ==== Declarations === //
 	//value
-	void SetVal(const double& val)
-	{
-		m_val = val;
-	}
-	const double& GetVal() const
-	{
-		return m_val;
-	}
+	void SetVal(const double& val);
+	const double& GetVal();
 	//unit
-	void SetUnit(const char& unit)
-	{
-		m_unit = unit;
-	}
-	const char& GetUnit() const
-	{
-		return m_unit;
-	}
+	void SetUnit(const char& ut){}
+	const char& GetUnit() const{}
 	//Yen
-	void SetYen(const double& Yen)
-	{
-		m_Yen = Yen;
-	}
-	const double& GetYen() const
-	{
-		return m_Yen;
-	}
+	void SetYen(const double& yen){}
+	const double& GetYen() const{}
 	//Euro
-	void SetEuro(const double& Euro)
-	{
-		m_Euro = Euro;
-	}
-	const double& GetEuro() const
-	{
-		return m_Euro;
-	}
+	void SetEuro(const double& euro){}
+	const double& GetEuro() const{}
 	//USdoller
-	void SetUSdoller(const double& USdoller)
-	{
-		m_USdoller = USdoller;
-	}
-	const double& GetUSDoller() const
-	{
-		return m_USdoller;
-	}
+	void SetUSdoller(const double& usdoller){}
+	const double& GetUSDoller() const{}
+	
 };
 

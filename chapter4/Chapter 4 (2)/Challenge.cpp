@@ -198,68 +198,11 @@ void Challenge::Drill_7() {
 
 	}
 }
-/*
-void Challenge::Exercise_1()
-{
-	double t_val;
-	char t_unit;
-	cout << "Enter the value followed by the currency Y = yen, E = Euro, D = dollers: " << endl << endl;
-	cin >> t_val >> t_unit;
-	m_Currency.SetVal(t_val);
-	m_Currency.SetUnit(t_unit);
-
-	switch (m_Currency.GetUnit())
-	{
-	case 'Y':
-		cout << "the conversion is: " << m_Currency.GetVal() * m_Currency.GetYen() << " in pounds" << endl;
-		break;
-	case 'E':
-		cout << "the conversion is: " << m_Currency.GetVal() * m_Currency.GetEuro() << " in pounds " << endl;
-		break;
-	case 'D':
-		cout << "the conversion is: " << m_Currency.GetVal() * m_Currency.GetUSDoller() << " in pounds " << endl;
-		break;
-	default:
-		cout << "Sorry thats not a currency we can convert: " << endl;
-		break;
-	}
-}*/
-void Challenge::TryThis()
-{
-	char character = 'A';
-	while (character != 'z' + 1)
-	{
-		int integer = character;
-		cout << character << '\t' << integer << '\n';
-		++character;
-	}
-}
-
-void Challenge::bleep(){
-	vector<string> sentence;
-	string badWord = "shit";
-	string replacementWord = "****";
-	cout << "input a sentence: " << endl;
-	for (string word; cin >> word;) {
-		
-		if (word == badWord){
-			sentence.push_back(replacementWord);
-		}
-		else{
-			sentence.push_back(word);
-		}	
-	}
-	for (string word : sentence) {
-		cout << word << " ";
-	}
-}
-
-
 
 // TODO create switch for drill choice
 void Challenge::RunChallenges()
 {
-	
+
 	cout << "Please choose a Drill 1 - 7" << endl;
 	for (int drill; cin >> drill;) {
 		switch (drill)
@@ -291,12 +234,7 @@ void Challenge::RunChallenges()
 			break;
 		}
 	}
-	
-	//Drill_1();
-	//Drill_2n3();
-	//Drill_4n5();
-	//Drill_6();
-	//Exercise_1();
-	//TryThis();
-	//bleep();
 }
+
+
+	

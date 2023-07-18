@@ -1,4 +1,5 @@
 #include "Exercise.h"
+
 /* ======== Exercise 1 ========================================
 * Try this page: 105 & 109
 * Write a program that converts Yen, Euros, and pounds into Dollers.
@@ -71,7 +72,19 @@ void Exercise::tryThisBleep()
 */
 void Exercise::exercise2()
 {
-	//TODO..
+	vector<double> temps;
+	for(double temp; cin>>temp;){
+		temps.push_back(temp);
+	}
+	// Compute mean temperature
+	double sum = 0;
+	for (int x : temps) {
+		sum += x;
+		cout<< "Average temperature:" <<sum/temps.size()<<'\n';
+	}
+	// Compute median temperature
+	sort(temps.begin(), temps.end());
+	cout<< "Median temperature:" << temps[temps.size()/2] << '\n';
 }
 
 	
@@ -155,10 +168,11 @@ void Exercise::exercise_19()
 }
 void Exercise::runExercise()
 {
+	exercise2();
 	//exercise_6();
 	//rg.grainCount();
 	//exercise_10();
 	//exercise_11();
 	//exercise_18();
-	exercise_19();
+	//exercise_19();
 }

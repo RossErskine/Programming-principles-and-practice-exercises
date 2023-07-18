@@ -40,12 +40,11 @@ Token Token_stream::get()
 	}
 	char ch;
 	cin >> ch;
-
+	// Exercise 2 add  curly brackets
 	switch (ch)
 	{
-	case'=':
-	case'x':
-	case'(':case')': case'{':case'}':case '!':
+	case'=': case'x': 
+	case'(':case')': case'{':case'}':case '!': 
 	case'+': case'-': case'*': case'/':
 		return Token{ ch };
 	case'.':
@@ -96,7 +95,7 @@ double primary()
 	
 	}
 }
-
+// Exercise 3 add facorial
 double factorial()
 {
 	double left = primary();
